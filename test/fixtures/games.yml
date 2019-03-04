@@ -1,13 +1,13 @@
 # Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
 
-one:
-  title: MyString
-  place: MyString
-  notes: MyString
-  time: MyString
+game_one:
+  title: Rucker
+  place: Rucker park
+  notes: 20 buy in
+  time: 14:00
 
-two:
-  title: MyString
-  place: MyString
-  notes: MyString
-  time: MyString
+# two:
+#   title: MyString
+#   place: MyString
+#   notes: MyString
+#   time: MyString
