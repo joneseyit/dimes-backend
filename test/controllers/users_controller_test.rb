@@ -1,7 +1,9 @@
 require 'test_helper'
 
-class UsersControllerTest < ActionDispatch::IntegrationTest
-  # test "the truth" do
-  #   assert true
-  # end
+class UsersControllerTest < ActionController::TestCase
+  test "users show should return success" do
+    user = users(:Jones)
+    get :show, params: { id: user.id }
+    assert_response :success
+  end
 end
