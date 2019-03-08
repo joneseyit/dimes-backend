@@ -5,4 +5,6 @@ class User < ApplicationRecord
     has_many :games, through: :user_games
     has_many :invitations
     has_many :inviteds, class_name: "Invitation", foreign_key: "invited_id"
+    validates :username, uniqueness: { case_sensitive: false }
+  
 end

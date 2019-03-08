@@ -2,7 +2,7 @@ class UsersController < ApplicationController
 
     def create
         @user = User.new(user_params)
-        if @user.create
+        if @user.save
             render json: @user, status: :created
         else
             render json: { error: "User could not be saved." }, status: :not_acceptable
