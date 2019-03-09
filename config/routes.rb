@@ -3,7 +3,7 @@ Rails.application.routes.draw do
   resources :games, only: [:index, :show]
   resources :invitations, only: [:index, :show]
   resources :users, only: [:index, :show, :create]
-  resources :user_games, only: [:index, :show]
+  resources :user_games, only: [:index, :show, :create]
   post '/login', to: 'login#create'
 
 end
