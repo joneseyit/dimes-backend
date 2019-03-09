@@ -5,7 +5,6 @@ class UserGamesController < ApplicationController
     end
 
     def create
-        byebug
         @user_game = UserGame.new(user_game_params)
         if @user_game.save
             render json: @user_game, status: :created
