@@ -5,9 +5,9 @@ class GamesController < ApplicationController
     end
 
     def create
-        byebug
         @user = User.find(params[:user_id])
         @game = @user.games.build(game_params)
+        @game.users << @user
         if @game.save
             render json: @game.to_json(:include => :users), status: :created
         else
