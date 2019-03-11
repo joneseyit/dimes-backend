@@ -5,8 +5,10 @@ class GamesController < ApplicationController
     end
 
     def create
-        @game = Game.new(game_params)
-        if @game.create
+        byebug
+        @user = User.find(params[:user_id])
+        @game = @user.games.build(game_params)
+        if @game.save
             render json: @game.to_json(:include => :users), status: :created
         else
             render json: { error: "Game could not be saved." }, status: :not_acceptable

@@ -7,9 +7,9 @@ class UserGamesController < ApplicationController
     def create
         @user_game = UserGame.new(user_game_params)
         if @user_game.save
-            render json: @user_game, status: :created
+            render json: @user_game.game.to_json(:include => :users), status: :created
         else
-            render json: { error: "Couldn't join you to the game :( Try again please." }, status: :not_acceptable
+            render json: { error: "Couldn't join you to the game - You may have already joined" }, status: :not_acceptable
         end
     end
 
