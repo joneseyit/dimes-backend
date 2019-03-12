@@ -6,16 +6,16 @@ class InvitationsController < ApplicationController
 
     def create
         @invitation = Invitation.new(invitation_params)
-        if @invitation.create
+        if @invitation.save
             render json: @invitation, status: :created
         else
-            render json: { error: "Invitation could not be saved." }, status: :not_acceptable
+            render json: { error: "Invitation could not be sent." }, status: :not_acceptable
         end
     end
 
     private
 
     def invitation_params
-        params.permit(:player_id, :invited_id, :game_id, :responded)
+        params.permit(:user_id, :invited_id, :game_id, :responded)
     end
 end
