@@ -13,6 +13,17 @@ class InvitationsController < ApplicationController
         end
     end
 
+    def update
+        byebug
+        @invitation = Invitation.find(params[:id])
+        @invitation.update_attributes(invitation_params)
+        if @invitation.save
+            render json: "You have responded."
+        else
+            render json: "Your response hasn't been saved."
+        end
+    end
+
     private
 
     def invitation_params

@@ -18,4 +18,8 @@ class User < ApplicationRecord
     def invite_format
         { key: self.id, value: self.id, text: self.username }
     end
+
+    def current_invites
+        self.inviteds.where('responded = ?', false)
+    end
 end
