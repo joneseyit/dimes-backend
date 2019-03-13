@@ -14,7 +14,6 @@ class InvitationsController < ApplicationController
     end
 
     def update
-        byebug
         @invitation = Invitation.find(params[:id])
         @invitation.update_attributes(invitation_params)
         if @invitation.save

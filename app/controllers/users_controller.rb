@@ -1,5 +1,18 @@
 class UsersController < ApplicationController
-
+#     render json:     @user.to_json(:include => 
+#     [ :games, :inviteds => 
+#         { :include => 
+#             [
+#                 { :user => {
+#                         :only => :username
+#                             } 
+#                 }, :game => {
+#                         :only => [:title, :id]
+#                 }
+#             ] 
+#         }
+#     ]
+# ), status: :ok 
 
 
     def index
@@ -23,20 +36,7 @@ class UsersController < ApplicationController
         #include the games, as well as inviteds.  From inviteds we want the 
         #username of the person sending the invite, and the title of the game
         @user = User.find(params[:id])
-        render json:     @user.to_json(:include => 
-        [ :games, :inviteds => 
-            { :include => 
-                [
-                    { :user => {
-                            :only => :username
-                                } 
-                    }, :game => {
-                            :only => [:title, :id]
-                    }
-                ] 
-            }
-        ]
-    ), status: :ok 
+        render json: @user.to_json(:include => :games, :methods => :current_invites)
 
 
     end

@@ -20,6 +20,9 @@ class User < ApplicationRecord
     end
 
     def current_invites
-        self.inviteds.where('responded = ?', false)
+        invites = self.inviteds.where('responded = ?', false)
+        invites.map do |invite|
+             { 'sender' => invite.user.username, 'game' => {'title' => invite.game.title, 'id' => invite.game.id}, 'id' => invite.id  }
+        end
     end
 end
