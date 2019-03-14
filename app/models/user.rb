@@ -15,6 +15,10 @@ class User < ApplicationRecord
         end
     end
 
+    def upcoming_games
+        self.games.where('time > ?', DateTime.now)
+    end
+
     def invite_format
         { key: self.id, value: self.id, text: self.username }
     end

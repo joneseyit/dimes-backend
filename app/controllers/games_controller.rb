@@ -1,6 +1,6 @@
 class GamesController < ApplicationController
     def index
-        @games = Game.all
+        @games = Game.future_games
         render json: @games.to_json(:include => :users)
     end
 

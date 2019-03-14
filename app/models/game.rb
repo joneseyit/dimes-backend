@@ -5,4 +5,10 @@ class Game < ApplicationRecord
 
     validates :title, presence: true
     validates :time, presence: true
+    validates :place, presence: true
+
+    def self.future_games
+        Game.all.where('time > ?', DateTime.now)
+    end
+
 end

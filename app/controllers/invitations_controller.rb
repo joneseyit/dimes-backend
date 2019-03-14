@@ -9,7 +9,7 @@ class InvitationsController < ApplicationController
         if @invitation.save
             render json: @invitation, status: :created
         else
-            render json: { error: "Invitation could not be sent." }, status: :not_acceptable
+            render json: { error: "They already have an invite to that game." }, status: :not_acceptable
         end
     end
 
