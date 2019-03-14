@@ -17,7 +17,7 @@ class InvitationsController < ApplicationController
         @invitation = Invitation.find(params[:id])
         @invitation.update_attributes(invitation_params)
         if @invitation.save
-            render json: "You have responded."
+            render json: @invitation
         else
             render json: "Your response hasn't been saved."
         end
