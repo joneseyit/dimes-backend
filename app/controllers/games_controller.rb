@@ -5,6 +5,8 @@ class GamesController < ApplicationController
     end
 
     def create
+        # before_action :authorize, only: [:create]
+        # current_user.games.build(game_params)
         @user = User.find(params[:user_id])
         @game = @user.games.build(game_params)
         @game.users << @user

@@ -16,6 +16,8 @@ class UsersController < ApplicationController
     end
 
     def show
+        #token decode 
+        # render json: current_us   er.to_json(....)
         @user = User.find(params[:id])
         render json: @user.to_json(:methods => [:current_invites, :upcoming_games])
     end
