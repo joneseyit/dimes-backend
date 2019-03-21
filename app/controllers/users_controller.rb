@@ -1,4 +1,7 @@
 class UsersController < ApplicationController
+    skip_before_action :authorized, only: [:create]
+
+    
     def index
         @users = User.all
         render json: @users.to_json(:methods => :invite_format )
@@ -15,12 +18,16 @@ class UsersController < ApplicationController
         end
     end
 
-    def show
-        #token decode 
-        # render json: current_us   er.to_json(....)
-        @user = User.find(params[:id])
-        render json: @user.to_json(:methods => [:current_invites, :upcoming_games])
-    end
+    # def show
+    #     #token decode 
+    #     # render json: current_us   er.to_json(....)
+    #     @user = User.find(params[:id])
+    #     render json: @user.to_json(:methods => [:current_invites, :upcoming_games])
+    # end
+
+    def profile 
+
+    end 
 
     private
 
