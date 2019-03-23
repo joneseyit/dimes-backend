@@ -5,6 +5,6 @@ Rails.application.routes.draw do
   resources :users, only: [:index, :create]
   resources :user_games, only: [:index, :show, :create]
   post '/login', to: 'login#create'
-  get '/profile', to: 'user#profile'
+  get '/users/profile', to: 'users#profile'
 
 end
