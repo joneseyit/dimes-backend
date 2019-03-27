@@ -6,5 +6,6 @@ Rails.application.routes.draw do
   resources :user_games, only: [:index, :show, :create]
   post '/login', to: 'login#create'
   get '/users/profile', to: 'users#profile'
+  post 'twilio/text' => 'twilio#text'
 
 end
